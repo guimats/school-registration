@@ -1,10 +1,12 @@
-﻿using SchoolRegistration.Domain.Interfaces;
+﻿using SchoolRegistration.Domain.Interfaces.Repositories;
+using SchoolRegistration.Domain.Interfaces.Factories;
 using SchoolRegistration.Infrastructure.Factories;
 using SimpleInjector;
 using SimpleInjector.Integration.WebApi;
 using SimpleInjector.Lifestyles;
 using System.Configuration;
 using System.Web.Http;
+using SchoolRegistration.Infrastructure.Repositories;
 
 namespace SchoolRegistration.API.App_Start
 {
@@ -31,6 +33,10 @@ namespace SchoolRegistration.API.App_Start
             container.Register<IDbConnectionFactory>(() => new SqlConnectionFactory(connectionString), Lifestyle.Singleton);
 
             // Repositories
+            container.Register<IStudentRepository, StudentRepository>(Lifestyle.Scoped);
+            container.Register<IRegistrationRepository, RegistrationRepository>(Lifestyle.Scoped);
+            container.Register<ISchoolClassRepository, SchoolClassRepository>(Lifestyle.Scoped);
+            container.Register<IReportRepository, ReportRepository>(Lifestyle.Scoped);
 
             // Services
         }

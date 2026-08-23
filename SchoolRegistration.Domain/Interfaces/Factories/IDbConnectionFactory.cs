@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Data;
 
-namespace SchoolRegistration.Domain.Interfaces
+namespace SchoolRegistration.Domain.Interfaces.Factories
 {
     public interface IDbConnectionFactory : IDisposable
     {

@@ -1,6 +1,6 @@
 <Solution>
-  <Project Path="SchoolRegistration.API/SchoolRegistration.API.csproj" />
-  <Project Path="SchoolRegistration.Domain/SchoolRegistration.Domain.csproj" />
-  <Project Path="SchoolRegistration.Infrastructure/SchoolRegistration.Infrastructure.csproj" />
-  <Project Path="SchoolRegistration.Service/SchoolRegistration.Service.csproj" />
+  <Project Path="SchoolRegistration.API/SchoolRegistration.API.csproj" Id="5c1338f1-56d2-4ebf-a0f9-d8081f969895" />
+  <Project Path="SchoolRegistration.Domain/SchoolRegistration.Domain.csproj" Id="3eac58e6-8b33-4745-89eb-3f590268a76e" />
+  <Project Path="SchoolRegistration.Infrastructure/SchoolRegistration.Infrastructure.csproj" Id="d1c2dae5-b6d5-416f-a185-f3e81a34ee4d" />
+  <Project Path="SchoolRegistration.Service/SchoolRegistration.Service.csproj" Id="f30390c1-4604-4442-8341-3ec94578fa77" />
 </Solution>

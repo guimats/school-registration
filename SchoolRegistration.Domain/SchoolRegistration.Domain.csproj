@@ -57,7 +57,19 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Interfaces\IDbConnectionFactory.cs" />
+    <Compile Include="DTOs\Requests\StudentFilterRequest.cs" />
+    <Compile Include="Entities\Registration.cs" />
+    <Compile Include="Entities\SchoolClass.cs" />
+    <Compile Include="Entities\SchoolClassReportDTO.cs" />
+    <Compile Include="Entities\Student.cs" />
+    <Compile Include="Exceptions\BusinessRuleException.cs" />
+    <Compile Include="Exceptions\DomainException.cs" />
+    <Compile Include="Exceptions\NotFoundException.cs" />
+    <Compile Include="Interfaces\Repositories\IRegistrationRepository.cs" />
+    <Compile Include="Interfaces\Repositories\IReportRepository.cs" />
+    <Compile Include="Interfaces\Repositories\ISchoolClassRepository.cs" />
+    <Compile Include="Interfaces\Repositories\IDbConnectionFactory.cs" />
+    <Compile Include="Interfaces\Repositories\IStudentRepository.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -65,6 +77,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="DTOs\Responses\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

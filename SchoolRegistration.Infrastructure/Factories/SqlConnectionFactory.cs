@@ -1,6 +1,6 @@
-﻿using SchoolRegistration.Domain.Interfaces;
+﻿using SchoolRegistration.Domain.Interfaces.Repositories;
+using SchoolRegistration.Domain.Interfaces.Factories;
 using System;
-using System.Configuration;
 using System.Data;
 using System.Data.SqlClient;
 
