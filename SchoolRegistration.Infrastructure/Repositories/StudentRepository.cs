@@ -62,7 +62,7 @@ namespace SchoolRegistration.Infrastructure.Repositories
 
             using (IDbConnection connection = _connectionFactory.CreateConnection())
             {
-                await connection.ExecuteAsync(sql, id);
+                await connection.ExecuteAsync(sql, new { id });
 
                 return;
             }
@@ -108,12 +108,19 @@ namespace SchoolRegistration.Infrastructure.Repositories
                     Ativo AS Active,
                     DataCadastro AS CreatedAt
                 FROM Aluno
-                WHERE (@Name IS NULL OR Nome LIKE '%' + @Name + '%')";
+                WHERE (@Name IS NULL OR Nome LIKE '%' + @Name + '%')
+                ORDER BY Nome ASC
+                OFFSET @OffSet ROWS
+                FETCH NEXT @PageSize ROWS ONLY;";
 
             using (IDbConnection connection = _connectionFactory.CreateConnection())
             {
                 string nameParam = string.IsNullOrWhiteSpace(filter?.Name) ? null : filter.Name;
-                var students = await connection.QueryAsync<Student>(sql, new { Name = nameParam });
+                int page = filter.Page <= 0 ? 1 : filter.Page;
+                int pageSize = filter.PageSize <= 0 ? 10 : filter.PageSize;
+                int offset = (page - 1) * pageSize;
+
+                var students = await connection.QueryAsync<Student>(sql, new { Name = nameParam, OffSet = offset, PageSize = pageSize });
 
                 return students.ToList();
             }

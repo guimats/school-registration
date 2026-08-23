@@ -21,8 +21,8 @@ namespace SchoolRegistration.Infrastructure.Repositories
             const string sql = @"
                 BEGIN TRANSACTION;
                 UPDATE Turma
-                SET AvailableSpots = AvailableSpots - 1
-                WHERE Id = @SchoolClassId AND AvailableSpots > 0;
+                SET VagasDisponiveis = VagasDisponiveis - 1
+                WHERE Id = @SchoolClassId AND VagasDisponiveis > 0;
 
                 IF @@ROWCOUNT > 0
                 BEGIN

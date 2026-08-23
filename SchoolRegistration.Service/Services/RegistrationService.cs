@@ -70,7 +70,7 @@ namespace SchoolRegistration.Service.Services
 
             var student = await _studentRepository.GetById(request.StudentId);
 
-            if (student.Active)
+            if (student.Active == false)
             {
                 throw new BusinessRuleException("Aluno não está ativo.");
             }

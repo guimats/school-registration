@@ -28,7 +28,7 @@ namespace SchoolRegistration.Infrastructure.Repositories
                     Periodo AS Shift,
                     VagasTotal AS TotalSpots,
                     VagasDisponiveis AS AvailableSpots
-                FROM Aluno
+                FROM Turma
                 WHERE Id = @id";
 
             using (IDbConnection connection = _connectionFactory.CreateConnection())
