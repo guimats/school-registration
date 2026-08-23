@@ -68,7 +68,7 @@
     <Compile Include="Interfaces\Repositories\IRegistrationRepository.cs" />
     <Compile Include="Interfaces\Repositories\IReportRepository.cs" />
     <Compile Include="Interfaces\Repositories\ISchoolClassRepository.cs" />
-    <Compile Include="Interfaces\Repositories\IDbConnectionFactory.cs" />
+    <Compile Include="Interfaces\Factories\IDbConnectionFactory.cs" />
     <Compile Include="Interfaces\Repositories\IStudentRepository.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
