@@ -7,6 +7,8 @@ using SimpleInjector.Lifestyles;
 using System.Configuration;
 using System.Web.Http;
 using SchoolRegistration.Infrastructure.Repositories;
+using SchoolRegistration.Service.Interfaces;
+using SchoolRegistration.Service.Services;
 
 namespace SchoolRegistration.API.App_Start
 {
@@ -39,6 +41,11 @@ namespace SchoolRegistration.API.App_Start
             container.Register<IReportRepository, ReportRepository>(Lifestyle.Scoped);
 
             // Services
+            container.Register<IStudentService, StudentService>(Lifestyle.Scoped);
+            container.Register<IRegistrationService, RegistrationService>(Lifestyle.Scoped);
+            container.Register<ISchoolClassService, SchoolClassService>(Lifestyle.Scoped);
+            container.Register<IReportService, ReportService>(Lifestyle.Scoped);
+
         }
     }
 }

@@ -18,6 +18,27 @@ namespace SchoolRegistration.Infrastructure.Repositories
             _connectionFactory = connectionFactory;
         }
 
+        public async Task<SchoolClass> GetById(int id)
+        {
+
+            const string sql = @"
+                SELECT 
+                    Id AS Id,
+                    Nome AS Name,
+                    Periodo AS Shift,
+                    VagasTotal AS TotalSpots,
+                    VagasDisponiveis AS AvailableSpots
+                FROM Aluno
+                WHERE Id = @id";
+
+            using (IDbConnection connection = _connectionFactory.CreateConnection())
+            {
+                var schoolClass = await connection.QuerySingleOrDefaultAsync<SchoolClass>(sql, new { id });
+
+                return schoolClass;
+            }
+        }
+
         public async Task<List<SchoolClass>> GetClasses()
         {
             const string sql = @"

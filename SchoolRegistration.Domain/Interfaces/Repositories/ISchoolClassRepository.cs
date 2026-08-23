@@ -7,5 +7,7 @@ namespace SchoolRegistration.Domain.Interfaces.Repositories
     public interface ISchoolClassRepository
     {
         Task<List<SchoolClass>> GetClasses();
+
+        Task<SchoolClass> GetById(int id);
     }
 }

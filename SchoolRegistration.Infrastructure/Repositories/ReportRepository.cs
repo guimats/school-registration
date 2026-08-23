@@ -22,15 +22,15 @@ namespace SchoolRegistration.Infrastructure.Repositories
         {
             const string sql = @"
                 SELECT 
-                    t.TurmaId AS SchoolClassId,
+                    t.Id AS SchoolClassId,
                     t.Nome AS SchoolClassName,
-                    t.VagasTotais AS Capacity,
+                    t.VagasTotal AS Capacity,
                     COUNT(m.Id) AS RegisteredStudentsCount,
-                    (t.VagasTotais - COUNT(m.Id)) AS RemainingSpots
+                    (t.VagasTotal - COUNT(m.Id)) AS RemainingSpots
                 FROM Turma AS t
                 LEFT JOIN Matricula AS m ON t.Id = m.TurmaId
                 GROUP BY 
-                    t.Id, t.Nome, t.VagasTotais
+                    t.Id, t.Nome, t.VagasTotal
                 ORDER BY 
                     t.Nome ASC;";
 

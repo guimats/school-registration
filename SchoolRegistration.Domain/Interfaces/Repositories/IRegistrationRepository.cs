@@ -6,5 +6,7 @@ namespace SchoolRegistration.Domain.Interfaces.Repositories
     public interface IRegistrationRepository
     {
         Task<Registration> AddRegistration(Registration registration);
+
+        Task<bool> IsStudentAlreadyRegistered(int classId, int studentId);
     }
 }
