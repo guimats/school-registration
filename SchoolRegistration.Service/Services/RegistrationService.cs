@@ -24,6 +24,7 @@ namespace SchoolRegistration.Service.Services
             RegistrationRequestValidator validator)
         {
             _registrationRepository = registrationRepository;
+            _studentRepository = studentRepository;
             _classRepository = classRepository;
             _validator = validator;
         }
