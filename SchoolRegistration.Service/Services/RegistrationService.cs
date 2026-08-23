@@ -79,7 +79,7 @@ namespace SchoolRegistration.Service.Services
 
             if (isRegistered)
             {
-                throw new BusinessRuleException("Aluno já está matriculado na turma");
+                throw new BusinessRuleException("Aluno já está matriculado na turma.");
             }
         }
     }
