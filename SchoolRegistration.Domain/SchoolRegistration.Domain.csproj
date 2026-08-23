@@ -57,7 +57,15 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="DTOs\Requests\RegistrationRequest.cs" />
     <Compile Include="DTOs\Requests\StudentFilterRequest.cs" />
+    <Compile Include="DTOs\Requests\StudentRequest.cs" />
+    <Compile Include="DTOs\Responses\RegistrationResponse.cs" />
+    <Compile Include="DTOs\Responses\SchoolClassLongResponse.cs" />
+    <Compile Include="DTOs\Responses\SchoolClassReportResponse.cs" />
+    <Compile Include="DTOs\Responses\SchoolClassShortResponse.cs" />
+    <Compile Include="DTOs\Responses\StudentFilterResponse.cs" />
+    <Compile Include="DTOs\Responses\StudentResponse.cs" />
     <Compile Include="Entities\Registration.cs" />
     <Compile Include="Entities\SchoolClass.cs" />
     <Compile Include="Entities\SchoolClassReportDTO.cs" />
@@ -65,6 +73,7 @@
     <Compile Include="Exceptions\BusinessRuleException.cs" />
     <Compile Include="Exceptions\DomainException.cs" />
     <Compile Include="Exceptions\NotFoundException.cs" />
+    <Compile Include="Exceptions\ValidationException.cs" />
     <Compile Include="Interfaces\Repositories\IRegistrationRepository.cs" />
     <Compile Include="Interfaces\Repositories\IReportRepository.cs" />
     <Compile Include="Interfaces\Repositories\ISchoolClassRepository.cs" />
@@ -78,8 +87,6 @@
   <ItemGroup>
     <None Include="packages.config" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="DTOs\Responses\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

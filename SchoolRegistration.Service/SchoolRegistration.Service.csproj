@@ -66,12 +66,23 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Extensions\Mapping\RegistrationExtensions.cs" />
+    <Compile Include="Extensions\Mapping\ReportExtensions.cs" />
+    <Compile Include="Extensions\Mapping\SchoolClassExtensions.cs" />
+    <Compile Include="Extensions\Mapping\StudentExtensions.cs" />
+    <Compile Include="Extensions\ValidationResultExtensions.cs" />
     <Compile Include="Interfaces\IRegistrationService.cs" />
     <Compile Include="Interfaces\IReportService.cs" />
     <Compile Include="Interfaces\ISchoolClassService.cs" />
     <Compile Include="Interfaces\IStudentService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Services\RegistrationService.cs" />
+    <Compile Include="Services\ReportService.cs" />
+    <Compile Include="Services\SchoolClassService.cs" />
     <Compile Include="Services\StudentService.cs" />
+    <Compile Include="Validators\Filters\StudentFilterValidator.cs" />
+    <Compile Include="Validators\Requests\RegistrationValidator.cs" />
+    <Compile Include="Validators\Requests\StudentRequestValidator.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\SchoolRegistration.Domain\SchoolRegistration.Domain.csproj">
@@ -82,5 +93,6 @@
   <ItemGroup>
     <None Include="packages.config" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

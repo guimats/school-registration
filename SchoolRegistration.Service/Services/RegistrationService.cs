@@ -49,25 +49,30 @@ namespace SchoolRegistration.Service.Services
 
         private async Task Validate(RegistrationRequest request)
         {
+            if (request == null)
+            {
+                throw new ValidationException("Dados da requisição inválidos.");
+            }
+
             var result = _validator.Validate(request);
 
             if (result.IsValid == false)
             {
-                throw new BusinessRuleException(result.JoinErrors());
+                throw new ValidationException(result.JoinErrors());
             }
 
             var schoolClass = await _classRepository.GetById(request.SchoolClassId);
 
             if (schoolClass.AvailableSpots <= 0)
             {
-                throw new BusinessRuleException("Turma não tem mais vagas disponíveis");
+                throw new BusinessRuleException("Turma não tem mais vagas disponíveis.");
             }
 
             var student = await _studentRepository.GetById(request.StudentId);
 
             if (student.Active)
             {
-                throw new BusinessRuleException("Aluno não está ativo");
+                throw new BusinessRuleException("Aluno não está ativo.");
             }
 
             bool isRegistered = await _registrationRepository.IsStudentAlreadyRegistered(request.SchoolClassId, request.StudentId);

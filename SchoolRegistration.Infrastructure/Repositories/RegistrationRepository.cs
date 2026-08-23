@@ -60,7 +60,7 @@ namespace SchoolRegistration.Infrastructure.Repositories
 
             using (IDbConnection connection = _connectionFactory.CreateConnection())
             {
-                bool isRegistered = await connection.ExecuteScalarAsync<bool>(sql, new { StudentId = studentId, SchoolClassId = schoolClassId });
+                bool isRegistered = await connection.ExecuteScalarAsync<bool>(sql, new { StudentId = studentId, SchoolClassId = classId });
 
                 return isRegistered;
             }

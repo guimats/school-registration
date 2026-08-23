@@ -27,11 +27,16 @@ namespace SchoolRegistration.Service.Services
 
         public async Task<StudentResponse> AddStudent(StudentRequest request)
         {
+            if (request == null)
+            {
+                throw new ValidationException("Dados da requisição inválidos.");
+            }
+
             var result = _requestValidator.Validate(request);
 
             if (result.IsValid == false)
             {
-                throw new BusinessRuleException(result.JoinErrors());
+                throw new ValidationException(result.JoinErrors());
             }
 
             var student = request.MapToStudent();
@@ -71,11 +76,16 @@ namespace SchoolRegistration.Service.Services
 
         public async Task UpdateStudent(StudentRequest request, int id)
         {
+            if (request == null)
+            {
+                throw new ValidationException("Dados da requisição inválidos.");
+            }
+
             var result = _requestValidator.Validate(request);
 
             if (result.IsValid == false)
             {
-                throw new BusinessRuleException(result.JoinErrors());
+                throw new ValidationException(result.JoinErrors());
             }
 
             var student = await _repository.GetById(id);
@@ -96,7 +106,7 @@ namespace SchoolRegistration.Service.Services
 
             if (result.IsValid == false)
             {
-                throw new BusinessRuleException(result.JoinErrors());
+                throw new ValidationException(result.JoinErrors());
             }
 
             var students = await _repository.FilterStudents(filter);
@@ -105,6 +115,7 @@ namespace SchoolRegistration.Service.Services
             var response = new StudentFilterResponse
             {
                 TotalStudents = count,
+                Page = filter.Page,
                 Students = students.Select(s => s.MapToResponse()).ToList()
             };
 

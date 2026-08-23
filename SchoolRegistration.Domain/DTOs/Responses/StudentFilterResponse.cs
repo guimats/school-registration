@@ -6,5 +6,6 @@ namespace SchoolRegistration.Domain.DTOs.Responses
     {
         public int TotalStudents { get; set; }
         public List<StudentResponse> Students { get; set; }
+        public int Page { get; set; }
     }
 }

@@ -1,14 +1,16 @@
-﻿using SchoolRegistration.Domain.Interfaces.Repositories;
-using SchoolRegistration.Domain.Interfaces.Factories;
+﻿using SchoolRegistration.Domain.Interfaces.Factories;
+using SchoolRegistration.Domain.Interfaces.Repositories;
 using SchoolRegistration.Infrastructure.Factories;
+using SchoolRegistration.Infrastructure.Repositories;
+using SchoolRegistration.Service.Interfaces;
+using SchoolRegistration.Service.Services;
+using SchoolRegistration.Service.Validators.Filters;
+using SchoolRegistration.Service.Validators.Requests;
 using SimpleInjector;
 using SimpleInjector.Integration.WebApi;
 using SimpleInjector.Lifestyles;
 using System.Configuration;
 using System.Web.Http;
-using SchoolRegistration.Infrastructure.Repositories;
-using SchoolRegistration.Service.Interfaces;
-using SchoolRegistration.Service.Services;
 
 namespace SchoolRegistration.API.App_Start
 {
@@ -46,6 +48,10 @@ namespace SchoolRegistration.API.App_Start
             container.Register<ISchoolClassService, SchoolClassService>(Lifestyle.Scoped);
             container.Register<IReportService, ReportService>(Lifestyle.Scoped);
 
+            // Validators
+            container.Register<StudentRequestValidator>(Lifestyle.Scoped);
+            container.Register<StudentFilterValidator>(Lifestyle.Scoped);
+            container.Register<RegistrationRequestValidator>(Lifestyle.Scoped);
         }
     }
 }
